@@ -1,0 +1,36 @@
+import random
+class catchphrase():
+    
+    def __init__(self,adjectives,nouns):
+        self.adjectives = adjectives
+        self.nouns = nouns
+        
+    def get_catchphrase(self):
+        num_adj = random.randint(0,len(self.adjectives)-1)
+        num_noun = random.randint(0,len(self.nouns)-1)
+        return self.adjectives[num_adj]+" "+self.nouns[num_noun]
+    
+    def add_adj(self,adjective):
+        self.adjectives.append(adjective)
+        return catchphrase.get_catchphrase(self)
+    
+    def add_noun(self,noun):
+        self.nouns.append(noun)
+        return catchphrase.get_catchphrase(self)
+        
+class rhyme():
+    def __init__(self,adjectives,nouns):
+        self.nouns = nouns
+        self.adjectives = adjectives
+        
+    def get_rhyme(self):
+        num_adj = random.randint(0,len(self.adjectives)-1)
+        num_noun = random.randint(0,len(self.nouns)-1)
+        return self.adjectives[num_adj]+" "+self.nouns[num_noun]
+    
+class rhyming_generator():
+    def __init__(self,rhymes):
+        self.rhymes = rhymes
+        
+    def get_catchphrase(self):
+        return self.rhymes[random.randint(0,len(self.rhymes)-1)].get_rhyme()
